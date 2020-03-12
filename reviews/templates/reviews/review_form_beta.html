@@ -1,0 +1,17 @@
+{% extends 'reviews/base.html' %}
+{% block content %}
+<form action="{% url 'reviews:review_create_send' %}" method="POST">
+	<input type="text" name="store_name">
+	<input type="text" name="title">
+	<textarea name="text"></textarea>
+	<select name="stars">
+		<option value="1">☆</option>
+		<option value="2">☆☆</option>
+		<option value="3">☆☆☆</option>
+		<option value="4">☆☆☆☆</option>
+		<option value="5">☆☆☆☆☆</option>
+	</select>
+	{% csrf_token %}
+	<button type="submit">送信</button>
+</form>
+{% endblock %}
